@@ -1,8 +1,8 @@
 from django.conf.urls import include, url
 
-from notification.views import index, health
+import notification.views as views
 
 urlpatterns = [
-    url(r'^health$', health),
-    url(r'^$', index),
+    url(r'^health$', views.HealthView.as_view(), name='health'),
+    url(r'^$', views.IndexView.as_view(), name='index'),
 ]
